@@ -20,7 +20,13 @@ jobs:
           repository: Trysimmer-org/RestaurantAIDash-Client
           ref: userdashboard
           token: ${{ secrets.GH_PAT }}
-
+          
+      - name: Debug
+        run: |
+          pwd
+          ls -la
+          find . -name cloudbuild.yaml
+          
       - name: Set Image Tag
         run: |
           echo "IMAGE_TAG=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
