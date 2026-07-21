@@ -1,0 +1,21 @@
+apps:
+  medscribe:
+    repo: Trysimmer-org/medscribe
+    branch: main
+    deployment: medscribe
+    container: medscribe
+    image: us-west1-docker.pkg.dev/my-project/apps/medscribe
+
+  phonedash:
+    repo: Trysimmer-org/phonedash
+    branch: main
+    deployment: phonedash
+    container: phonedash
+    image: us-west1-docker.pkg.dev/my-project/apps/phonedash
+
+  ai:
+    repo: Trysimmer-org/ai
+    branch: main
+    deployment: ai
+    container: ai
+    image: us-west1-docker.pkg.dev/my-project/apps/ai
