@@ -46,12 +46,21 @@ jobs:
             --config=cloudbuild.yaml \
             --substitutions=_IMAGE_TAG=${IMAGE_TAG}
 
+      - name: Install GKE Auth Plugin
+        run: |
+          gcloud components install gke-gcloud-auth-plugin --quiet
+
       - name: Get GKE Credentials
         working-directory: view
         run: |
           gcloud container clusters get-credentials ${CLUSTER_NAME} \
             --zone ${CLUSTER_ZONE} \
             --project ${PROJECT_ID}
+
+      - name: Configure kubectl
+        run: |
+          export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+          echo "USE_GKE_GCLOUD_AUTH_PLUGIN=True" >> $GITHUB_ENV
 
       - name: Update Deployment Image
         run: |
