@@ -41,6 +41,7 @@ jobs:
 
       - name: Build and Push Image
         run: |
+          cd view
           gcloud builds submit \
             --config=cloudbuild.yaml \
             --substitutions=_IMAGE_TAG=${IMAGE_TAG}
