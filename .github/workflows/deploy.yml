@@ -40,6 +40,7 @@ jobs:
             --substitutions=_IMAGE_TAG=${IMAGE_TAG}
 
       - name: Get GKE Credentials
+        working-directory: view
         run: |
           gcloud container clusters get-credentials ${CLUSTER_NAME} \
             --zone ${CLUSTER_ZONE} \
